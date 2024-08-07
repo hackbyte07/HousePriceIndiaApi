@@ -1,14 +1,9 @@
 
+from pathlib import Path
 from fastapi import APIRouter
 from schemas.HousePriceSchema import HousePriceSchema
 import pandas as pd
-import joblib
-
-file = r"D:\ayush.rana\VScodeProjects\HousePriceIndiaApi\src\utils\house_data_model.pkl"
-file_two = r'D:\ayush.rana\VScodeProjects\HousePriceIndiaApi\src\utils\house_data_columns.pkl'
-
-mlmodel = joblib.load(open(file, 'rb'))
-columns = joblib.load(open(file_two, 'rb'))
+from utils.mlmodel import mlmodel, columns
 
 router = APIRouter(prefix='/houseprice')
 
